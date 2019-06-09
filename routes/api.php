@@ -28,9 +28,6 @@ Route::group(['namespace' => 'Articles'], function () {
 Route::group(['namespace' => 'products'], function () {
     Route::resource('products', 'ProductsController');
 });
-//Route::group(['namespace'=>'delivery'], function (){
-//   Route::resource('delivery', 'DeliveryController');
-//});
 Route::group(['namespace' => 'delivery'], function () {
     Route::resource('delivery', 'DeliveryController')->only(['index', 'store', 'update']);
 });

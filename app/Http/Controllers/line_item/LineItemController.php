@@ -36,5 +36,12 @@ class LineItemController extends Controller
         return HttpResponse::success();
     }
 
+        public function destroy(Request $request, $orderId)
+    {
+        $line_item = LineItem::where('OrderId',$orderId)->delete();
+        $order = Order::where('orderId',$orderId)->delete();
+        $delivery_list = Delivery::where('delivery_id',$request->delivery_id)->delete();
+        return HttpResponse::success();
+    }
 
 }
